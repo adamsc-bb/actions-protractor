@@ -25,10 +25,11 @@ jobs:
       - name: Install Protractor
         run: |
           npm install -g protractor
-          webdriver-manager update --versions.chrome ${{ env.CHROMEWEBDRIVER }}
+          npm install chrome -g
+          npx webdriver-manager update --gecko=false --versions.chrome  100.0.4896.60
 
       - name: Start Webdriver
-        run: webdriver-manager start --versions.chrome ${{ env.CHROMEWEBDRIVER }} &
+        run: webdriver-manager start &
 
       - name: Run tests
         run: protractor conf.js
