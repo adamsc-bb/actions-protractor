@@ -22,16 +22,13 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - uses: browser-actions/setup-chrome@latest
-      - run: chrome --version
-
       - name: Install Protractor
         run: |
           npm install -g protractor
-          webdriver-manager update
+          webdriver-manager update --versions.chrome ${{ env.CHROMEWEBDRIVER }}
 
       - name: Start Webdriver
-        run: webdriver-manager start --versions.chrome &
+        run: webdriver-manager start --versions.chrome ${{ env.CHROMEWEBDRIVER }} &
 
       - name: Run tests
         run: protractor conf.js
