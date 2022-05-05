@@ -25,9 +25,10 @@ jobs:
       - name: Install Protractor
         run: |
           npm install -g protractor
+          webdriver-manager update
 
       - uses: browser-actions/setup-chrome@latest
-      - run: chrome --version
+      #- run: chrome --version
 
       - name: Start Webdriver
         run: webdriver-manager start --versions.chrome &
