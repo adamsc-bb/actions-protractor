@@ -4,7 +4,19 @@ exports.config = {
   
     // Capabilities to be passed to the webdriver instance.
     capabilities: {
-      'browserName': 'chrome'
+      'browserName': 'chrome',
+      chromeOptions: {
+        args: [
+            '--disable-dev-shm-usage',
+            '--no-sandbox',
+            //'--disable-gpu',
+            '--headless',
+            
+            '--no-default-browser-check',
+            '--start-maximized',
+            '--window-size=1920,1080'
+        ]
+    }
     },
   
     // Framework to use. Jasmine is recommended.
