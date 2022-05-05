@@ -30,8 +30,7 @@ jobs:
       - run: chrome --version
 
       - name: Start Webdriver
-      run: |
-        webdriver-manager start --versions.chrome &
+        run: webdriver-manager start --versions.chrome &
 
       - name: Run tests
         run: protractor conf.js
