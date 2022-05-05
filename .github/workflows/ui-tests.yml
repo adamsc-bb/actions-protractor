@@ -1,5 +1,8 @@
 name: UI Tests Manual Run
 
+on:
+  workflow_dispatch:
+
 jobs:
   test:
     runs-on: ubuntu-latest
