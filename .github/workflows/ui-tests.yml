@@ -1,0 +1,29 @@
+name: UI Tests Manual Run
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./apps/e2e
+
+    steps:
+      - uses: actions/checkout@v2
+
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Protractor
+        run: |
+          npm install -g protractor
+          webdriver-manager update --gecko=false
+          webdriver-manager start --versions.chrome &
+
+      - name: Run tests
+        run: protractor conf.js
