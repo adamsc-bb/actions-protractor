@@ -26,7 +26,7 @@ jobs:
         run: |
           npm install -g protractor
           npm install chrome -g
-          npx webdriver-manager update --gecko=false --versions.chrome  100.0.4896.60
+          npx webdriver-manager update
 
       - name: Start Webdriver
         run: webdriver-manager start &
