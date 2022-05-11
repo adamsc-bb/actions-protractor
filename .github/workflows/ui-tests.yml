@@ -27,10 +27,10 @@ jobs:
           npm install -g protractor
           npm install protractor-beautiful-reporter --save-dev
           npm install chrome -g
-          node ./node_modules/protractor/bin/webdriver-manager update
+          node ~/node_modules/protractor/bin/webdriver-manager update
 
       - name: Start Webdriver
-        run: ./node node_modules/protractor/bin/webdriver-manager start &
+        run: ~/node node_modules/protractor/bin/webdriver-manager start &
 
       - name: Run tests
         run: protractor conf.js
